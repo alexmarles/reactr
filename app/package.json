@@ -1,0 +1,31 @@
+{
+  "name": "reactr",
+  "version": "1.0.0",
+  "description": "Example app for learning React",
+  "main": "build/bundle.js",
+  "scripts": {
+    "build": "webpack --colors",
+    "serve": "webpack-dev-server --content-base build/ --colors --progress --hot",
+    "start": "npm run build && npm run serve"
+  },
+  "author": "Alex Marles <alex@alexmarles.com",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-core": "^6.21.0",
+    "babel-loader": "^6.2.10",
+    "babel-preset-latest": "^6.16.0",
+    "babel-preset-react": "^6.16.0",
+    "css-loader": "^0.26.1",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "html-webpack-plugin": "^2.26.0",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.14.0",
+    "webpack-dev-server": "^1.16.2"
+  },
+  "dependencies": {
+    "moment": "^2.17.1",
+    "normalize-css": "^2.3.1",
+    "uuid": "^3.0.1"
+  }
+}
