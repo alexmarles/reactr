@@ -1,7 +1,21 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import { Link } from 'react-router'
 import moment from 'moment'
 import styles from './message.css'
+
+const propTypes = {
+  text: PropTypes.string.isRequired,
+  picture: PropTypes.string.isRequired,
+  displayName: PropTypes.string.isRequired,
+  username: PropTypes.string.isRequired,
+  date: PropTypes.number.isRequired,
+  numReplies: PropTypes.number.isRequired,
+  numRetweets: PropTypes.number.isRequired,
+  numFavorites: PropTypes.number.isRequired,
+  onReply: PropTypes.func.isRequired,
+  onRetweet: PropTypes.func.isRequired,
+  onFavorite: PropTypes.func.isRequired
+}
 
 class Message extends Component {
   constructor (props) {
@@ -74,5 +88,7 @@ class Message extends Component {
     )
   }
 }
+
+Message.propTypes = propTypes
 
 export default Message
