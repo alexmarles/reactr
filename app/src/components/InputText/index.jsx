@@ -1,5 +1,11 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 import styles from './input-text.css'
+
+const propTypes = {
+  usernameToReply: PropTypes.string.isRequired,
+  onSendText: PropTypes.func.isRequired,
+  onCloseText: PropTypes.func.isRequired
+}
 
 function InputText ({ onSendText, usernameToReply, onCloseText }) {
   return (
@@ -12,5 +18,7 @@ function InputText ({ onSendText, usernameToReply, onCloseText }) {
     </form>
   )
 }
+
+InputText.propTypes = propTypes
 
 export default InputText

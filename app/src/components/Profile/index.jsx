@@ -1,5 +1,13 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 import styles from './profile.css'
+
+const propTypes = {
+  picture: PropTypes.string.isRequired,
+  displayName: PropTypes.string.isRequired,
+  username: PropTypes.string.isRequired,
+  emailAddress: PropTypes.string.isRequired,
+  location: PropTypes.string.isRequired
+}
 
 function Profile ({ picture, displayName, username, emailAddress, location }) {
   return (
@@ -22,5 +30,7 @@ function Profile ({ picture, displayName, username, emailAddress, location }) {
     </div>
   )
 }
+
+Profile.propTypes = propTypes
 
 export default Profile
