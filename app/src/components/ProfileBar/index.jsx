@@ -5,10 +5,11 @@ import styles from './profile-bar.css'
 const propTypes = {
   picture: PropTypes.string.isRequired,
   username: PropTypes.string.isRequired,
-  onOpenText: PropTypes.func.isRequired
+  onOpenText: PropTypes.func.isRequired,
+  onLogout: PropTypes.func.isRequired
 }
 
-function ProfileBar ({ picture, username, onOpenText }) {
+function ProfileBar ({ picture, username, onOpenText, onLogout }) {
   return (
     <div className={styles.root}>
       <Link to='/profile'>
@@ -20,6 +21,10 @@ function ProfileBar ({ picture, username, onOpenText }) {
       <button className={styles.button} onClick={onOpenText}>
         <span className='fa fa-edit fa-lg'></span>
         Tweet!
+      </button>
+      <button className={styles.button} onClick={onLogout}>
+        <span className='fa fa-sign-out'></span>
+        Logout
       </button>
     </div>
   )

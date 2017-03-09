@@ -1,0 +1,11 @@
+'use strict'
+
+export default {
+  firebase: {
+    apiKey: "perfectlyValidKey-123",
+    authDomain: "app.domain.com",
+    databaseURL: "https://app.db.com",
+    storageBucket: "app.bucket.com",
+    messagingSenderId: "123456789"
+  }
+}

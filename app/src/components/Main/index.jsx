@@ -5,7 +5,8 @@ import ProfileBar from '../ProfileBar'
 import InputText from '../InputText'
 
 const propTypes = {
-  user: PropTypes.object.isRequired
+  user: PropTypes.object.isRequired,
+  onLogout: PropTypes.func.isRequired
 }
 
 class Main extends Component {
@@ -210,6 +211,7 @@ class Main extends Component {
           picture={this.props.user.photoURL}
           username={this.props.user.username}
           onOpenText={this.handleOpenText}
+          onLogout={this.props.onLogout}
         />
         {this.renderOpenText()}
         <MessagesList
