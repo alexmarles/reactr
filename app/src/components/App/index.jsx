@@ -76,7 +76,7 @@ class App extends Component {
           <Match pattern='/profile' render={() => (
             <Profile
               picture={this.state.user.photoURL}
-              username={this.state.user.username}
+              username={this.state.user.email.split('@')[0]}
               displayName={this.state.user.displayName}
               emailAddress={this.state.user.email}
               location={this.state.user.location}

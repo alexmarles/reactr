@@ -81,7 +81,7 @@ class Main extends Component {
       text: event.target.text.value,
       picture: this.props.user.photoURL,
       displayName: this.props.user.displayName,
-      username: this.props.user.username,
+      username: this.props.user.email.split('@')[0],
       date: Date.now(),
       replies: 0,
       retweets: 0,
@@ -209,7 +209,7 @@ class Main extends Component {
       <div>
         <ProfileBar
           picture={this.props.user.photoURL}
-          username={this.props.user.username}
+          username={this.props.user.email.split('@')[0]}
           onOpenText={this.handleOpenText}
           onLogout={this.props.onLogout}
         />
