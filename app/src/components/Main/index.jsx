@@ -18,41 +18,7 @@ class Main extends Component {
       openText: false,
       usernameToReply: '',
       msgToReply: 0,
-      messages: [
-        {
-          id: uuid.v4(),
-          text: 'Call me Stuart',
-          picture: 'http://placehold.it/150/00f/fff?text=hamster',
-          displayName: 'Stuart Little',
-          username: 'hamster',
-          date: Date.now() - (30*60*1000),
-          replies: 0,
-          retweets: 0,
-          favorites: 0
-        },
-        {
-          id: uuid.v4(),
-          text: 'I don\'t know my name',
-          picture: 'http://placehold.it/150/0f0/fff?text=unknown',
-          displayName: 'John Doe',
-          username: 'unknown',
-          date: Date.now() - (4*60*1000),
-          replies: 0,
-          retweets: 0,
-          favorites: 0
-        },
-        {
-          id: uuid.v4(),
-          text: 'I am Charlie',
-          picture: 'http://placehold.it/150/f00/fff?text=charlie',
-          displayName: 'Carl Elias',
-          username: 'charlie',
-          date: Date.now() - (3*60*1000),
-          replies: 0,
-          retweets: 0,
-          favorites: 0
-        }
-      ]
+      messages: []
     }
 
     this.handleOpenText = this.handleOpenText.bind(this)
