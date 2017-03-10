@@ -166,11 +166,6 @@ class Main extends Component {
 
     let user = Object.assign({}, this.state.user)
     user.replies.push(msgId)
-
-    this.setState({
-      messages: messages,
-      user: user
-    })
   }
 
   handleReply (msgId, usernameToReply) {

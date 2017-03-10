@@ -1,9 +1,7 @@
 import React from 'react'
 import { render } from 'react-dom'
 import firebase from 'firebase'
-
 import keys from './keys'
-import App from './components/App'
 
 firebase.initializeApp({
   apiKey: keys.firebase.apiKey,
@@ -12,5 +10,7 @@ firebase.initializeApp({
   storageBucket: keys.firebase.signInWithPopup,
   messagingSenderId: keys.firebase.messagingSenderId
 })
+
+import App from './components/App'
 
 render(<App />, document.getElementById('root'))
