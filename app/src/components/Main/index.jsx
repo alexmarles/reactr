@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import uuid from 'uuid'
+import firebase from 'firebase'
 import MessagesList from '../MessagesList'
 import ProfileBar from '../ProfileBar'
 import InputText from '../InputText'
@@ -30,6 +31,19 @@ class Main extends Component {
     this.handleReply = this.handleReply.bind(this)
   }
 
+  componentWillMount () {
+    const messagesRef = firebase.database().ref().child('messages')
+
+    messagesRef.on('child_added', snapshot => {
+      this.setState({
+        messages: this.state.messages.concat(snapshot.val()),
+        openText: false,
+        usernameToReply: '',
+        msgToReply: 0
+      })
+    })
+  }
+
   handleOpenText (event) {
     event.preventDefault()
     this.setState({ openText: true })
@@ -54,14 +68,11 @@ class Main extends Component {
       favorites: 0
     }
 
-    this.afterReply(this.state.msgToReply)
+    const messagesRef = firebase.database().ref().child('messages')
+    const messageID = messagesRef.push()
+    messageID.set(newMessage)
 
-    this.setState({
-      messages: this.state.messages.concat([newMessage]),
-      openText: false,
-      usernameToReply: '',
-      msgToReply: 0
-    })
+    this.afterReply(this.state.msgToReply)
   }
 
   renderOpenText () {
