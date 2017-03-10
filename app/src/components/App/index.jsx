@@ -13,15 +13,7 @@ class App extends Component {
   constructor () {
     super()
     this.state = {
-      user: null,
-      user2: {
-        photoURL: 'http://placehold.it/150/ff0/000?text=god',
-        email: 'god@reactr.com',
-        displayName: 'Alex Marles',
-        username: 'god',
-        location: 'Barcelona',
-        onOpenText: false
-      }
+      user: null
     }
 
     this.handleOnAuth = this.handleOnAuth.bind(this)
