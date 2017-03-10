@@ -79,7 +79,7 @@ class App extends Component {
               username={this.state.user.email.split('@')[0]}
               displayName={this.state.user.displayName}
               emailAddress={this.state.user.email}
-              location={this.state.user.location}
+              location={this.state.user.location || 'Unknown'}
             />
           )} />
 
