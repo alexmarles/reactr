@@ -6,7 +6,8 @@
   "scripts": {
     "build": "webpack --colors",
     "serve": "webpack-dev-server --content-base build/ --colors --progress --hot",
-    "start": "npm run build && npm run serve"
+    "start": "npm run build && npm run serve",
+    "production": "webpack -p"
   },
   "author": "Alex Marles <alex@alexmarles.com",
   "license": "MIT",
