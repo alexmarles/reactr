@@ -92,3 +92,7 @@ jspm_packages
 
 # Bundled files
 build
+
+# Firebase Config
+.firebaserc
+firebase.json
