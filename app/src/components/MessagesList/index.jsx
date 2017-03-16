@@ -18,7 +18,7 @@ function MessagesList ({ messages, onReply, onRetweet, onFavorite }) {
             key={msg.id}
             text={msg.text}
             picture={msg.picture}
-            displayName={msg.displayName}
+            displayName={msg.displayName || msg.username}
             username={msg.username}
             date={msg.date}
             numReplies={msg.replies}

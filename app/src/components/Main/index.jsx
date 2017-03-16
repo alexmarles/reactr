@@ -29,6 +29,7 @@ class Main extends Component {
     this.handleFavorite = this.handleFavorite.bind(this)
     this.afterReply = this.afterReply.bind(this)
     this.handleReply = this.handleReply.bind(this)
+    this.updateMsgRetweets = this.updateMsgRetweets.bind(this)
   }
 
   componentWillMount () {
@@ -56,8 +57,11 @@ class Main extends Component {
 
   handleSendText (event) {
     event.preventDefault()
+
+    const messagesRef = firebase.database().ref().child('messages')
+    const messageID = messagesRef.push()
     let newMessage = {
-      id: uuid.v4(),
+      id: messageID.key,
       text: event.target.text.value,
       picture: this.props.user.photoURL,
       displayName: this.props.user.displayName,
@@ -68,8 +72,6 @@ class Main extends Component {
       favorites: 0
     }
 
-    const messagesRef = firebase.database().ref().child('messages')
-    const messageID = messagesRef.push()
     messageID.set(newMessage)
 
     this.afterReply(this.state.msgToReply)
@@ -87,6 +89,19 @@ class Main extends Component {
     }
   }
 
+  updateMsgRetweets (msgId, movement) {
+    let messageRef = firebase.database().ref(`messages/${msgId}`)
+    messageRef.transaction(message => {
+      if (message.retweets > 0 && movement < 0) {
+        message.retweets--
+      } else if (movement > 0) {
+        message.retweets++
+      }
+
+      return message
+    })
+  }
+
   handleRetweet (msgId) {
     let alreadyRetweeted = this.state.user.retweets.filter(rt => rt === msgId)
     let messages = this.state.messages
@@ -96,6 +111,7 @@ class Main extends Component {
       messages.map(msg => {
         if (msg.id === msgId) {
           msg.retweets++
+          this.updateMsgRetweets(msg.id, 1)
         }
 
         return msg
@@ -106,6 +122,7 @@ class Main extends Component {
       messages.map(msg => {
         if (msg.id === msgId) {
           msg.retweets--
+          this.updateMsgRetweets(msg.id, -1)
         }
 
         return msg
