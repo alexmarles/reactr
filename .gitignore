@@ -1,5 +1,5 @@
 ##### App configuration files
-src/keys.js
+app/src/keys.js
 
 ##### macOS
 *.DS_Store
