@@ -8,5 +8,5 @@ docker-compose up
 ```
 If you want to get into the container's bash console just run:
 ```
-docker-compose run --rm store_server /bin/bash
+docker-compose run --rm reactr /bin/bash
 ```
