@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react'
-import uuid from 'uuid'
 import firebase from 'firebase'
 import MessagesList from '../MessagesList'
 import ProfileBar from '../ProfileBar'
@@ -173,7 +172,7 @@ class Main extends Component {
   }
 
   afterReply (msgId) {
-    let messages = this.state.messages.map(msg => {
+    this.state.messages.map(msg => {
       if (msg.id === msgId) {
         msg.replies++
       }
